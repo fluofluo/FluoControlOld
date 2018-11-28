@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{default}">
+      
+    <head>
+        <title>Signup</title>
+        
+        
+   <script>  
+		function checkPass(){
+		    //Store the password field objects into variables ...
+		    var password = document.getElementById('inputPassword');
+		    var confirmedPassword = document.getElementById('inputConfirmPassword');
+		    //Store the Confimation Message Object ...
+		    var messagePassword = document.getElementById('confirmPasswordMessage');
+		    //Set the colors we will be using ...
+		    var goodColor = "rgba(105, 247, 105, 0.65)";
+		    var badColor = "rgba(248, 4, 4, 0.64)";
+		    var infoColor = "rgba(0, 0, 0, 0.88)";
+		    //Compare the values in the password field 
+		    //and the confirmation field
+		    if(password.value == confirmedPassword.value){
+		        //The passwords match. 
+		        //Set the color to the good color and inform
+		        //the user that they have entered the correct password 
+		        document.getElementById("registerButton").disabled = false;
+		        inputConfirmPassword.style.backgroundColor = goodColor;
+		        messagePassword.style.color = infoColor;
+		        messagePassword.innerHTML = "Hasła zgodne"
+		    }else{
+		        //The passwords do not match.
+		        //Set the color to the bad color and
+		        //notify the user.
+		        document.getElementById("registerButton").disabled = true;
+		        inputConfirmPassword.style.backgroundColor = badColor;
+		        messagePassword.style.color = infoColor;
+		        messagePassword.innerHTML = "Niepasujące hasło"
+		    }
+		}  
+		
+		function checkEmail(){
+		    //Store the email field objects into variables ...
+		    var email = document.getElementById('inputEmail');
+		    var confirmedEmail = document.getElementById('inputConfirmEmail');
+		    //Store the Confimation Message Object ...
+		    var messageEmail = document.getElementById('confirmEmailMessage');
+		    //Set the colors we will be using ...
+		    var goodColor = "rgba(105, 247, 105, 0.65)";
+		    var badColor = "rgba(248, 4, 4, 0.64)";
+		    var infoColor = "rgba(0, 0, 0, 0.88)";
+		    //Compare the values in the password field 
+		    //and the confirmation field
+		    if(email.value == confirmedEmail.value){
+		        //The passwords match. 
+		        //Set the color to the good color and inform
+		        //the user that they have entered the correct password 
+		        document.getElementById("registerButton").disabled = false;
+		        inputConfirmEmail.style.backgroundColor = goodColor;
+		        messageEmail.style.color = infoColor;
+		        messageEmail.innerHTML = "Adresy email zgodne"
+		    }else{
+		        //The passwords do not match.
+		        //Set the color to the bad color and
+		        //notify the user.
+		        document.getElementById("registerButton").disabled = true;
+		        inputConfirmEmail.style.backgroundColor = badColor;
+		        messageEmail.style.color = infoColor;
+		        messageEmail.innerHTML = "Niepasujące adresy email"
+		    }
+		} 
+		
+		
+  </script>      
+        
+        
+        
+		
+
+    </head>
+    <body class="text-center">
+        <div layout:fragment="content">
+        
+        
+                
+       
+			        
+            <form class="form-signin" th:action="@{/signup}" th:object="${user}" method="post">
+            
+            
+                
+                <img class="p-3" th:src="@{/images/logoLogin.png}"  alt="Super logo"/>
+                
+                
+                
+                <div th:each="e : ${#fields.detailedErrors()}">
+				        <div class="alert alert-warning alert-dismissible fade show"  role="alert">
+				            <strong>Email zajęty</strong>
+				            <p th:text="${e.message}" style="margin-bottom: 0px;">E-mail taken</p>				             
+				            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					 		<span aria-hidden="true">&times;</span>
+					 		</button>
+				        </div>
+				</div>
+				
+                
+                <label for="inputEmail" class="sr-only">E-mail</label>
+                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="e-mail"
+                onkeyup="checkEmail(); return false;" required=""/>  
+                
+                <label for="inputConfirmEmail" class="sr-only">E-mail</label>
+                <input type="email" name="inputConfirmEmail" id="inputConfirmEmail" class="form-control" 
+                onkeyup="checkEmail(); return false;" placeholder="potwierdź e-mail" required=""/>
+                <span id="confirmEmailMessage" class="confirmEmailMessage"></span> 
+                                          
+              
+                <label for="inputPassword" class="sr-only">Hasło</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="hasło" 
+                onkeyup="checkPass(); return false;" required="" />                
+                
+             	<label for="inputConfirmPassword" class="sr-only">Hasło</label>
+                <input type="password" name="inputConfirmPassword" id="inputConfirmPassword" class="form-control" 
+                placeholder="powtórz hasło" required="" onkeyup="checkPass(); return false;"/>
+                <span id="confirmPasswordMessage" class="confirmPasswordMessage"></span>  
+                
+                
+                
+                <label for="inputFirstname" class="sr-only">Imię</label>
+                <input type="text" name="firstname" id="inputFirstname" class="form-control" placeholder="imię" required="" />
+               
+                <label for="inputLastname" class="sr-only">Nazwisko</label>
+                <input type="text" name="lastname" id="inputLastname" class="form-control" placeholder="nazwisko" required="" />
+                
+                <label for="inputClientCode" class="sr-only">Kod klienta</label>
+                <input type="text" name="ClientCode" id="inputClientCode" class="form-control" placeholder="Kod klienta" required="" />
+                
+             
+                <button id="registerButton" class="btn btn-lg btn-primary btn-block" type="submit">Zarejestruj</button>
+                               
+            </form>
+            
+            		
+            <form class="form-signin" th:action="@{/login}" method="get">
+                <button class="btn btn-md btn-success btn-block" type="Submit">Zaloguj się</button>
+            </form>
+      </div>
+			      
+			      
+
+			     
+           
+      
+      
+      
+      
+    </body>
+</html>
