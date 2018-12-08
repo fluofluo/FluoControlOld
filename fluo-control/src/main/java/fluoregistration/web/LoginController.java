@@ -60,16 +60,16 @@ public class LoginController {
 	}
 	
 	
-	//model and view method for admin dashboard page which is a secure page showing a data from the successful login
-	@RequestMapping(value = "/admin_dashboard", method = RequestMethod.GET)
-	public ModelAndView admin_dashboard() {
+	//model and view method for hyperadmin dashboard page which is a secure page showing a data from the successful login
+	@RequestMapping(value = "/hyperadmin_dashboard", method = RequestMethod.GET)
+	public ModelAndView hyperadmin_dashboard() {
 	    ModelAndView modelAndView = new ModelAndView();
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    User user = userService.findUserByEmail(auth.getName());
 	    modelAndView.addObject("currentUser", user);
 	    modelAndView.addObject("fullName", "Witaj " + user.getFirstname() + " " + user.getLastname() );
-	    modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
-	    modelAndView.setViewName("admin_dashboard");
+	    modelAndView.addObject("adminMessage", "Content Available Only for Users with hyperadmindmin Role");
+	    modelAndView.setViewName("hyperadmin_dashboard");
 	    return modelAndView;
 	}
 	

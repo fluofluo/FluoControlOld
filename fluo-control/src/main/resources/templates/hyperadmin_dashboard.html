@@ -47,9 +47,9 @@
                 
           </li>
           <li>
-            <a href="./icons.html">
+            <a th:href="@{/clients}">
               <i class="now-ui-icons education_atom"></i>
-              <p>Icons</p>
+              <p>Clients</p>
             </a>
           </li>
           <li>
@@ -156,7 +156,19 @@
         </div>
       </nav>
       <!-- End Navbar -->
+      
+      
+                    
+                    
       <div class="panel-header panel-header-lg">
+      
+      <li class="nav-item" th:if="${currentUser}">
+                         <a class="nav-link" th:text="${fullName}"></a>
+                        <form th:action="@{/logout}" method="post">
+                        <button class="btn btn-outline-light" type="submit" value="Sign Out">Wyloguj się HYPER</button>
+                        </form>
+      </li>
+      
         <canvas id="bigDashboardChart"></canvas>
       </div>
       <div class="content">
