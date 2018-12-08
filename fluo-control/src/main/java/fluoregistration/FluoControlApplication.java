@@ -20,6 +20,13 @@ public class FluoControlApplication {
 	CommandLineRunner init(RoleRepository roleRepository) {
 
 	    return args -> {
+	    	
+	    	Role hyperadminRole = roleRepository.findByRole("HYPERADMIN");
+	        if (hyperadminRole == null) {
+	            Role newHyperadminRole = new Role();
+	            newHyperadminRole.setRole("HYPERADMIN");
+	            roleRepository.save(newHyperadminRole);
+	        }
 
 	        Role adminRole = roleRepository.findByRole("ADMIN");
 	        if (adminRole == null) {

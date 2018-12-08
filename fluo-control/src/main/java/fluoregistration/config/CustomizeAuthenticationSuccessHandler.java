@@ -29,7 +29,10 @@ public class CustomizeAuthenticationSuccessHandler implements AuthenticationSucc
 	        }
 	        else if ("USER".equals(auth.getAuthority())) {
 	            response.sendRedirect("/user_dashboard");
-	        }    
+	        }
+	        else if ("HYPERADMIN".equals(auth.getAuthority())) {
+	            response.sendRedirect("/hyperadmin_dashboard");
+	        }
 	    }
 	}
 }
