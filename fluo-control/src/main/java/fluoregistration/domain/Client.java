@@ -1,69 +1,53 @@
-/*package fluoregistration.domain;
+package fluoregistration.domain;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.IndexDirection;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="client")
-	public class Client {
+@Document(collection = "client")
 
-		@Id
-		private String id;
-		@Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
-		private String clientname;
-		private String clientaddress;
-		private String clientcode;
-		private String clientnumber;
-		private boolean enabled; 
-		
-		
-		public String getId() {
-			return id;
-		}
+public class Client {
 
-		public void setId(String id) {
-			this.id = id;
+	@Id
+    String id;
+	String clientName;
+    String clientAddress;
+    String clientCode;
+    
+	    public Client() {
+	    }
+    
+    	public Client(String clientName, String clientAddress, String clientCode) {
+		        this.clientName = clientName;
+		        this.clientAddress = clientAddress;
+		        this.clientCode = clientCode;
 		}
+    	
+    
+    public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getClientName() {
+		return clientName;
+	}
+	public void setClientName(String clientName) {
+		this.clientName = clientName;
+	}
+	public String getClientAddress() {
+		return clientAddress;
+	}
+	public void setClientAddress(String clientAddress) {
+		this.clientAddress = clientAddress;
+	}
+	public String getClientCode() {
+		return clientCode;
+	}
+	public void setClientCode(String clientCode) {
+		this.clientCode = clientCode;
+	}
+	
 
-		public String getClientname() {
-			return clientname;
-		}
-
-		public void setClientname(String clientname) {
-			this.clientname = clientname;
-		}
-
-		public String getClientaddress() {
-			return clientaddress;
-		}
-
-		public void setClientaddress(String clientaddress) {
-			this.clientaddress = clientaddress;
-		}
-
-		public String getClientcode() {
-			return clientcode;
-		}
-
-		public void setClientcode(String clientcode) {
-			this.clientcode = clientcode;
-		}
-
-		public String getClientnumber() {
-			return clientnumber;
-		}
-
-		public void setClientnumber(String clientnumber) {
-			this.clientnumber = clientnumber;
-		}
-
-		public boolean isEnabled() {
-			return enabled;
-		}
-
-		public void setEnabled(boolean enabled) {
-			this.enabled = enabled;
-		}
+	
 }
-		*/

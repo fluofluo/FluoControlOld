@@ -1,16 +1,15 @@
-/*package fluoregistration.repository;
+package fluoregistration.repository;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import fluoregistration.domain.Client;
 
-public interface ClientRepository extends MongoRepository<Client, String> {
+@Repository
+public interface ClientRepository extends CrudRepository<Client, String>{
 	
-	Client findByRole(String client);
+	Client findOne(String id);
+	
+	@Override
+	void delete(Client deleted);
 }
-
-*/
-
-
-
-//getting Client data by client name

@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>fluo-control</name>
-	<description>Spring Boot + MongoDB - Registration</description>
+	<description>Monitoring App</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

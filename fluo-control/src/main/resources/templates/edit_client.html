@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
+    <head>
+        <title>Edytuj klienta</title>
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <h3>
+                    <a href="/client" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list"></span> Klient</a>
+                </h3>
+                <h2>Edytuj klienta</h2>
+                <form action="/update">
+                    <div class="form-group">
+                        <label for="email">Nazwa klienta:</label>
+                        <input type="text" class="form-control" name="clientName" th:value="${client.clientName}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Adres klienta</label>
+                        <textarea class="form-control" name="clientAddress" cols="60" rows="3" th:text="${client.clientAddress}"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Kod klienta</label>
+                        <input type="number" class="form-control" name="clientCode" th:value="${client.clientCode}" />
+                    </div>
+                    
+                    <input type="hidden" name="id" th:value="${client.id}" />
+                    <button type="submit" class="btn btn-success">Zapisz</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

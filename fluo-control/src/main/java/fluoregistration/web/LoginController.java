@@ -45,10 +45,13 @@ public class LoginController {
 	public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
 	    ModelAndView modelAndView = new ModelAndView();
 	    User userExists = userService.findUserByEmail(user.getEmail());
-	    if (userExists != null) {
+	   // 
+	    if (userExists != null ) {
 	        bindingResult.rejectValue("email", "error.user", "Istnieje już użytkownik o podanym adresie e-mail.");
-	    }	    
-// 	    
+	    }	
+	   
+	    
+	    
 	    else {
 	        userService.saveUser(user);
 	        modelAndView.addObject("user", new User());
@@ -67,7 +70,7 @@ public class LoginController {
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    User user = userService.findUserByEmail(auth.getName());
 	    modelAndView.addObject("currentUser", user);
-	    modelAndView.addObject("fullName", "Witaj " + user.getFirstname() + " " + user.getLastname() );
+	    modelAndView.addObject("fullName", "Hiperadministrator " + user.getFirstname() + " " + user.getLastname() );
 	    modelAndView.addObject("hyperadminMessage", "Content Available Only for Users with hyperadmindmin Role");
 	    modelAndView.setViewName("hyperadmin_dashboard");
 	    return modelAndView;
@@ -80,7 +83,7 @@ public class LoginController {
 		    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		    User user = userService.findUserByEmail(auth.getName());
 		    modelAndView.addObject("currentUser", user);
-		    modelAndView.addObject("fullName", "Witaj " + user.getFirstname() + " " + user.getLastname() );
+		    modelAndView.addObject("fullName", "Administrator " + user.getFirstname() + " " + user.getLastname() );
 		    modelAndView.addObject("adminMessage", "Content Available Only for Users with admin Role");
 		    modelAndView.setViewName("admin_dashboard");
 		    return modelAndView;
@@ -93,8 +96,8 @@ public class LoginController {
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    User user = userService.findUserByEmail(auth.getName());
 	    modelAndView.addObject("currentUser", user);
-	    modelAndView.addObject("fullName", "Witaj " + user.getFirstname() + " " + user.getLastname() );
-	    modelAndView.addObject("adminMessage", "Content Available Only for Users with User Role");
+	    modelAndView.addObject("fullName", "Użytkownik " + user.getFirstname() + " " + user.getLastname() );
+	    modelAndView.addObject("userMessage", "Content Available Only for Users with User Role");
 	    modelAndView.setViewName("user_dashboard");
 	    return modelAndView;
 	}

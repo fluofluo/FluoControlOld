@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+
 import fluoregistration.service.CustomUserDetailsService;
 
 
@@ -35,6 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	
 	
+	
 	//Add an override method for manage authentication mechanism that uses UserDetailsService and Bcrypt password encoder
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -55,7 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	            .antMatchers("/login").permitAll()
 	            .antMatchers("/signup").permitAll()
 	            .antMatchers("/loggedout").permitAll()
-	            .antMatchers("/dashboard/**").hasAuthority("ADMIN").anyRequest()
+	            .antMatchers("/dashboard/**").hasAuthority("ADMIN").anyRequest()	            
 	            .authenticated().and().csrf().disable().formLogin().successHandler(customizeAuthenticationSuccessHandler)
 	            .loginPage("/login").failureUrl("/login?error=true")
 	            .usernameParameter("email")
@@ -64,6 +66,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	            .deleteCookies("JSESSIONID")
 	            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 	            .logoutSuccessUrl("/loggedout").and().exceptionHandling();
+	    
+	    
+	    
 	            
 	}
 	

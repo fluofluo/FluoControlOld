@@ -90,6 +90,8 @@
                 
                 <img class="p-3" th:src="@{/images/logoLogin.png}"  alt="Super logo"/>
                 
+              
+            
                 
                 
                 <div th:each="e : ${#fields.detailedErrors()}">
@@ -137,11 +139,9 @@
                 <button id="registerButton" class="btn btn-lg btn-primary btn-block" type="submit">Zarejestruj</button>
                                
             </form>
+                
+                
             
-            		
-            <form class="form-signin" th:action="@{/login}" method="get">
-                <button class="btn btn-md btn-success btn-block" type="Submit">Zaloguj się</button>
-            </form>
       </div>
 			      
 			      
