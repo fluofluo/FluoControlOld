@@ -1,176 +1,105 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{dashboard_template}" lang="en">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{default}" lang="en">
 
-    
-       
-    
 <head>
-  
-  <title>Clients</title>	
-
- 
-  
-</head>
-
-<body>
-  <div class="wrapper" layout:fragment="content">
-    <div class="sidebar" data-color="green">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
-       <div class="logo">
-        <a class="simple-text logo-normal"><img class="p-3" th:src="@{/images/logoDashboard.png}" src="../images/logoDashboard.png" alt="Super logo">FluoControl</a>
-      </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-        
-            <li>
-              <a href="#collapseExample" data-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseExample">
-                 <i class="now-ui-icons ui-1_bell-53"></i>
-                <p>Struktura</p>
-              </a>
-                <div class="collapse" id="collapseExample">
-                  <ul class="list-group">
-                      <a class="list-group-item" href="#collapseExample1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample1">Cras justo odio</a>
-                            <div class="collapse" id="collapseExample1">
-                                <ul class="list-group">
-                                      <li class="list-group-item">Dapibus ac facilisis in</li>
-                                      <li class="list-group-item">Morbi leo risus</li>
-                                      <li class="list-group-item">Porta ac consectetur ac</li>
-                                      <li class="list-group-item">Vestibulum at eros</li>
-                                </ul>
-                            </div>
-                      <li class="list-group-item">Dapibus ac facilisis in</li>
-                      <li class="list-group-item">Morbi leo risus</li>
-                      <li class="list-group-item">Porta ac consectetur ac</li>
-                      <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-                </div>
-                
-          </li>
-          <li>
-            <a th:href="@{/clients}">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Klienci</p>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    
-    <!-- Main panel -->
-    <div class="main-panel">
-      <!-- Navbar -->
-     
-	       <nav class="navbar navbar-expand-lg fixed-top position-absolute" style="background-color: #28a745;">
-	        <div class="container-fluid">
-	          <div class="navbar-wrapper">
-	            <div class="navbar-toggle">
-	              <button type="button" class="navbar-toggler">
-	                <span class="navbar-toggler-bar bar1"></span>
-	                <span class="navbar-toggler-bar bar2"></span>
-	                <span class="navbar-toggler-bar bar3"></span>
-	              </button>
-	            </div>
-	            <a class="navbar-brand" th:href="@{/hyperadmin_dashboard}">Strona główna</a>
-	          </div>
-	          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-	            <span class="navbar-toggler-bar navbar-kebab"></span>
-	            <span class="navbar-toggler-bar navbar-kebab"></span>
-	            <span class="navbar-toggler-bar navbar-kebab"></span>
-	          </button>
-	          <div class="collapse navbar-collapse justify-content-end" id="navigation">
-	            <form>
-	              <div class="input-group no-border">
-	                <input type="text" value="" class="form-control" placeholder="Search...">
-	                <div class="input-group-append">
-	                  <div class="input-group-text">
-	                    <i class="now-ui-icons ui-1_zoom-bold"></i>
-	                  </div>
-	                </div>
-	              </div>
-	            </form>
-	            <ul class="navbar-nav">
-	              <li class="nav-item">
-	                <a class="nav-link" href="#pablo">
-	                  <i class="now-ui-icons media-2_sound-wave"></i>
-	                  <p>
-	                    <span class="d-lg-none d-md-block">Stats</span>
-	                  </p>
-	                </a>
-	              </li>
-	              <li class="nav-item dropdown">
-	                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	                  <i class="now-ui-icons users_single-02"></i>
-	                  <p>
-	                    <span class="d-lg-none d-md-block">Some Actions</span>
-	                  </p>
-	                </a>
-	                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-	                
-	                  <a class="dropdown-item" href="#">Dane konta</a>
-	                  
-	                  	<form th:action="@{/logout}" method="post">
-	                        <a class="btn dropdown-item" type="submit" value="Sign Out">Wyloguj się</a>
-	                    </form>
-	                  
-	                </div>
-	              </li>
-	              <li class="nav-item" th:if="${currentUser}">
-	              		<a class="nav-link" th:text="${fullName}"></a>
-	              </li>
-	              
-	              
-	            </ul>
-	          </div>
-	        </div>
-	      </nav>
-	   
-      <!-- End Navbar -->
-      <!-- Container -->
-      
-      	<div class = "content">
-      	
-      
-      	
-      	<div layout:fragment="content" class="row">
-            <div class="col-xs-8 col-md-8">
-                <h3>
-                    <a href="/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Client</a>
-                </h3>
-                <h2>Client List</h2>
-                <div class="table-responsive">
-                    <table class="table" id="product-table">
-                        <thead>
-                            <tr>
-                                <th>Nazwa klienta</th>
-                                <th>Adres</th>
-                                <th>Kod klienta</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="client : ${client}">
-                                <td><a th:text="${client.clientName}" th:href="@{'/show/' + ${client.id}}"></a></td>
-                                <td th:text="${client.clientAddress}"></td>
-                                <td th:text="${client.clientCode}"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-      	</div>	
-      </div>
-      
-     
-    
-    
-  </div>
- 
-  
-</body>
-
+        <title>Clients</title>
+    </head>
+   <body>
+   	<div class="wrapper" layout:fragment="content">
+	   		<div class="col-md-12">
+	   		<div class="card">
+	   		<div class="card-header">
+	   		<h2>Add Client</h2>
+	   		</div>
+	   		
+			   		<div class="card-body">
+					   		<form action="/addClient" method="POST">
+							   		<div class="row">
+							            <label class = "col-sm-2 col-form-label" id="clientName">Name</label>         
+							        <div class = "col-sm-7">
+							        	<div class="form-group">
+							        		<input class="form-control" type="text" name="clientName" id="clientName" aria-invalid="false">      			
+							       	 	</div>
+							        </div>						        
+							        </div>
+							        
+							        <div class="row">
+							            <label class = "col-sm-2 col-form-label" id="clientAddress">Address</label>         
+							        <div class = "col-sm-7">
+							        	<div class="form-group">
+							        		<input class="form-control" type="text" name="clientAddress" id="clientAddress" aria-invalid="false">      			
+							       	 	</div>
+							        </div>						        
+							        </div>
+							        
+							        <div class="row">
+							            <label class = "col-sm-2 col-form-label" id="clientCode">Code</label>         
+							        <div class = "col-sm-7">
+							        	<div class="form-group">
+							        		<input class="form-control" type="text" name="clientCode" id="clientCode" aria-invalid="false">      			
+							       	 	</div>
+							        </div>						        
+							        </div>         
+					            
+					            			            
+					            <button class="btn btn-primary btn-simple" type="submit">Add</button> 
+					        </form>
+					 </div>       
+			</div>
+			<br/>        
+	   		
+	   		<div class="card">
+			   		<div class="card-header">
+					   		<h2>Search for client</h2>
+					</div>
+			   		
+				   		<div class="card-body">			   		
+								<form action="/searchClient" method="GET">
+								   		<div class = "row">
+									   		<div class = "col-sm-4">
+											        <input class="form-control" type="text" name="searchClient" id="searchClient" th:value="${searchClient}" />
+											</div> 										
+											<button class="btn btn-primary btn-simple" type="submit" value="Search">Search</button>            
+										</div>           
+								</form>							       
+							 <br/>
+						</div>
+						
+						<div class="card-body">	
+								<div class = "col-sm-7">
+						        	<div class="table-responsive">
+						        		<table class = "table">
+						           			<thead class = "text">
+								                <tr>
+								                    <th>Client name</th>
+								                    <th>Client address</th>
+								                    <th>Client code</th>
+								                   
+								                </tr>
+						           			</thead>
+								            <tbody>
+								                <tr th:each="client : ${clientList}">
+								                    <td th:text="${client.clientName}"></td>
+								                    <td th:text="${client.clientAddress}"></td>
+								                    <td th:text="${client.clientCode}"></td>
+								                    <td></td>
+								                </tr>
+								            </tbody>
+						            	</table>
+						            </div>
+						        </div>
+			      		</div>
+			        
+			       
+			        
+			        
+			        
+			        
+			        
+			 </div>
+	       </div>
+       </div>
+    </body>
 </html>

@@ -16,11 +16,7 @@ public class Client {
 	    public Client() {
 	    }
     
-    	public Client(String clientName, String clientAddress, String clientCode) {
-		        this.clientName = clientName;
-		        this.clientAddress = clientAddress;
-		        this.clientCode = clientCode;
-		}
+    	
     	
     
     public String getId() {

@@ -16,6 +16,8 @@ public class FluoControlApplication {
 		SpringApplication.run(FluoControlApplication.class, args);
 	}
 	
+	
+	
 	@Bean
 	CommandLineRunner init(RoleRepository roleRepository) {
 

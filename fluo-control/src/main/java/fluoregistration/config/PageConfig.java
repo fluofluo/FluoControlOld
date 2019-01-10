@@ -31,7 +31,7 @@ public class PageConfig implements WebMvcConfigurer{
 	    registry.addViewController("/loggedout").setViewName("loggedout");
 	    
 	    registry.addViewController("/clients").setViewName("clients");
-	    
+	   
 	    
 	}
 }
