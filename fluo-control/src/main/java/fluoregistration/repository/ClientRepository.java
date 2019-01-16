@@ -1,13 +1,13 @@
 package fluoregistration.repository;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
 
 import fluoregistration.domain.Client;
 
 
-@Repository
-public interface ClientRepository extends CrudRepository<Client, String>{
+public interface ClientRepository extends MongoRepository<Client, String>{
 	
-	Client findByClientName(String clientName);
+	Client findByClientCode(String clientCode);
+	
 }

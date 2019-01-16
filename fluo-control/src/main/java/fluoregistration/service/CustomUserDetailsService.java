@@ -36,6 +36,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 	}
 	
 	
+	
+	
 	//method for save a new user, encrypt the password and set role for the user. We use role USER for newly registered user.
 	public void saveUser(User user) {
 	    user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));

@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{default}">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{default2}">
     <head>
         <title>LoginAfterSignUp</title>
     </head>
     <body class="text-center">
         <div layout:fragment="content">
-        KONTO ZAŁOŻONE POMYŚLNIE ZALOGUJ SIĘ FAJO
+		       <form class="form-signin">
+		       <div class ="alert alert-info alert with-icon" data-notify="container">
+		       <span data-notify="icon" class="now-ui-icons ui-1_check"></span>
+		       <span data-notify="message">
+		       Konto utwożone pomyślnie. <br/>
+		       Teraz możesz się zalogować.
+		       </span>
+		       </div>
+		       </form>
             <form class="form-signin" th:action="@{/login}" method="post">
                 <img class="p-3" th:src="@{/images/logoLogin.png}" src="../static/images/logoLogin.png" alt="Super logo"/>
                 

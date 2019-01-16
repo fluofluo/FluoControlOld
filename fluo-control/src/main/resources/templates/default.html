@@ -33,6 +33,52 @@
             </div>
         </nav>
 
+		    <div class="sidebar" data-color="green">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+      <div class="logo">
+        <a class="simple-text logo-normal"><img class="p-3" th:src="@{/images/logoDashboard.png}" src="../images/logoDashboard.png" alt="Super logo">FluoControl</a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+        
+            <li>
+              <a href="#collapseExample" data-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseExample">
+                 <i class="now-ui-icons ui-1_bell-53"></i>
+                <p>Struktura</p>
+              </a>
+                <div class="collapse" id="collapseExample">
+                  <ul class="list-group">
+                      <a class="list-group-item" href="#collapseExample1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample1">Cras justo odio</a>
+                            <div class="collapse" id="collapseExample1">
+                                <ul class="list-group">
+                                      <li class="list-group-item">Dapibus ac facilisis in</li>
+                                      <li class="list-group-item">Morbi leo risus</li>
+                                      <li class="list-group-item">Porta ac consectetur ac</li>
+                                      <li class="list-group-item">Vestibulum at eros</li>
+                                </ul>
+                            </div>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+                      <li class="list-group-item">Morbi leo risus</li>
+                      <li class="list-group-item">Porta ac consectetur ac</li>
+                      <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                </div>
+                
+          </li>
+          <li>
+            <a th:href="@{/clients}">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Klienci</p>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+
         <div class="container">
             <div layout:fragment="content"></div>
         </div>

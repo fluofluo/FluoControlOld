@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Default2</title>
+        <meta name="description" content=""/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+        <link href="../static/css/defaultTemplateStyle.css" th:href="@{/css/defaultTemplateStyle.css}" rel="stylesheet"/>
+    </head>
+    <body>
+        
+        <div class="container">
+            <div layout:fragment="content"></div>
+        </div>
+        <!-- /.container -->
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </body>
+</html>

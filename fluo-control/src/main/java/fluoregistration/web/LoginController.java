@@ -1,6 +1,6 @@
 package fluoregistration.web;
 
-import javax.validation.Valid;
+import javax.validation.Valid; 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import fluoregistration.domain.Client;
 import fluoregistration.domain.User;
+import fluoregistration.repository.ClientRepository;
 import fluoregistration.service.CustomUserDetailsService;
 
 @Controller
@@ -19,6 +21,9 @@ public class LoginController {
 
 	@Autowired
 	private CustomUserDetailsService userService;
+	
+	@Autowired
+	private ClientRepository clientRepository;
 	
 	
 	//model and view method for login page
@@ -42,16 +47,16 @@ public class LoginController {
 	
 	//model and view method for saving the new user when form submitted form sign up/register page
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
+	public ModelAndView createNewUser(@Valid User user, Client client, BindingResult bindingResult) {
 	    ModelAndView modelAndView = new ModelAndView();
 	    User userExists = userService.findUserByEmail(user.getEmail());
-	   // 
-	    if (userExists != null ) {
+ 	    Client clientCodeExists = clientRepository.findByClientCode(client.getClientCode());
+	    if (userExists != null) {
 	        bindingResult.rejectValue("email", "error.user", "Istnieje już użytkownik o podanym adresie e-mail.");
 	    }	
-	   
-	    
-	    
+	    if (clientCodeExists == null)
+	    	bindingResult.rejectValue("clientCode", "error.client", "Podany kod klienta jest niepoprawny.");
+	    	
 	    else {
 	        userService.saveUser(user);
 	        modelAndView.addObject("user", new User());

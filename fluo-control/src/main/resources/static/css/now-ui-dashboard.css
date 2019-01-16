@@ -853,7 +853,7 @@ fieldset[disabled]
 
 .form-control {
   background-color: transparent;
-  border: 1px solid #E3E3E3;
+  border: 1px solid #00ff8c;
   border-radius: 30px;
   color: #2c2c2c;
   line-height: normal;
@@ -861,7 +861,7 @@ fieldset[disabled]
   transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
   box-shadow: none; }
   .form-control:focus {
-    border: 1px solid #f96332;
+    border: 1px solid #00feff;
     box-shadow: none;
     outline: 0 !important;
     color: #2c2c2c; }
@@ -2604,8 +2604,7 @@ Created using IcoMoon - icomoon.io
 
 .wrapper {
   position: relative;
-  top: 0;
-  height: 100vh; }
+  top: 0;}
   .wrapper.wrapper-full-page {
     min-height: 100vh;
     height: auto; }
@@ -2921,7 +2920,7 @@ Created using IcoMoon - icomoon.io
   height: 380px; }
 
 .footer {
-  padding: 24px 0; }
+  padding-bottom: 40px; }
   .footer.footer-default {
     background-color: #f2f2f2; }
   .footer nav {
