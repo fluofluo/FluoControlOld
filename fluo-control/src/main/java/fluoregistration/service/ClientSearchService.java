@@ -9,19 +9,31 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import fluoregistration.domain.Client;
+import fluoregistration.repository.ClientRepository;
 
 @Service
 public class ClientSearchService {
+	
+	@Autowired
+	MongoTemplate mongoTemplate;	
 
 	@Autowired
-    MongoTemplate mongoTemplate;
+	ClientRepository clientRepository;
+	
+	
+	
+		//method for getting user by email
+		public Client findClientByClientCode(String clientCode) {
+		    return clientRepository.findByClientCode(clientCode);
+		}
+	
 
-			public Collection<Client> searchClient(String text) {
-			       Criteria criteria = new Criteria();
-			           criteria.orOperator(Criteria.where("clientName").regex(text, "i"),Criteria.where("clientAddress").regex(text, "i"),Criteria.where("clientCode").regex(text, "i"));
-			           Query query = new Query(criteria); 
+		public Collection<Client> searchClient(String text) {
+		       Criteria criteria = new Criteria();
+		       criteria.orOperator(Criteria.where("clientName").regex(text, "i"),Criteria.where("clientAddress").regex(text, "i"),Criteria.where("clientCode").regex(text, "i"));
+		       Query query = new Query(criteria); 
 			        
-			return mongoTemplate.find(query,Client.class);
+		return mongoTemplate.find(query,Client.class);
                        
 }
 	

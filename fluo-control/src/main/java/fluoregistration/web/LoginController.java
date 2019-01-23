@@ -7,13 +7,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import fluoregistration.domain.Client;
 import fluoregistration.domain.User;
-import fluoregistration.repository.ClientRepository;
+import fluoregistration.service.ClientSearchService;
 import fluoregistration.service.CustomUserDetailsService;
 
 @Controller
@@ -23,7 +24,7 @@ public class LoginController {
 	private CustomUserDetailsService userService;
 	
 	@Autowired
-	private ClientRepository clientRepository;
+	private ClientSearchService clientCodeService;
 	
 	
 	//model and view method for login page
@@ -38,26 +39,41 @@ public class LoginController {
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public ModelAndView signup() {
 	    ModelAndView modelAndView = new ModelAndView();
-	    User user = new User();
+	    User user = new User();	    	
 	    modelAndView.addObject("user", user);
+	    
+	    
+	    
 	    modelAndView.setViewName("signup");
 	    return modelAndView;
 	}
 	
 	
+
+	
+	
+	
 	//model and view method for saving the new user when form submitted form sign up/register page
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public ModelAndView createNewUser(@Valid User user, Client client, BindingResult bindingResult) {
+	public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult, @ModelAttribute("client") Client client) {
 	    ModelAndView modelAndView = new ModelAndView();
+	    
+	    
+	    
+		Client clientCodeExists = clientCodeService.findClientByClientCode(client.getClientCode());
+	    
 	    User userExists = userService.findUserByEmail(user.getEmail());
- 	    Client clientCodeExists = clientRepository.findByClientCode(client.getClientCode());
+	    
 	    if (userExists != null) {
 	        bindingResult.rejectValue("email", "error.user", "Istnieje już użytkownik o podanym adresie e-mail.");
-	    }	
-	    if (clientCodeExists == null)
-	    	bindingResult.rejectValue("clientCode", "error.client", "Podany kod klienta jest niepoprawny.");
+	    }
+	    
+	    if (clientCodeExists == null) {
+	        bindingResult.rejectValue("email", "error.user", "Podany kod klienta nie istnieje.");
+	    }
+ 	   
 	    	
-	    else {
+	    else if (userExists == null && clientCodeExists != null) {
 	        userService.saveUser(user);
 	        modelAndView.addObject("user", new User());
 	        modelAndView.setViewName("login_after_signup");

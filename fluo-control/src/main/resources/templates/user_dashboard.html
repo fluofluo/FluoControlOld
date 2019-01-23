@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{default}">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{dashboard_template}">
     <head>
         <title>Dashboard</title>
     </head>
@@ -8,6 +8,10 @@
         <div layout:fragment="content">
             <h1 th:inline="text">Witaj [[${#httpServletRequest.remoteUser}]]!</h1>
             <h2>To jest Twój panel użytkownika</h2>
+            <form th:action="@{/logout}" method="post">
+                        <button class="btn btn-outline-light" type="submit" value="Sign Out">Wyloguj się USER</button>
+            </form>
         </div>
+            
     </body>
 </html>

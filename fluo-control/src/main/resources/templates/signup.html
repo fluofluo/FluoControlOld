@@ -96,7 +96,7 @@
                 
                 <div th:each="e : ${#fields.detailedErrors()}">
 				        <div class="alert alert-warning alert-dismissible fade show"  role="alert">
-				            <strong>Email zajęty</strong>
+				            <strong>Coś poszło nie tak</strong>
 				            <p th:text="${e.message}" style="margin-bottom: 0px;">E-mail taken</p>				             
 				            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					 		<span aria-hidden="true">&times;</span>
@@ -141,7 +141,7 @@
                 <input type="text" name="lastname" id="inputLastname" class="form-control" placeholder="nazwisko" required="" />
                 
                 <label for="inputClientCode" class="sr-only">Kod klienta</label>
-                <input type="text" name="ClientCode" id="inputClientCode" class="form-control" placeholder="Kod klienta" required="" />
+                <input type="text" name="clientCode" id="inputClientCode" class="form-control" placeholder="Kod klienta" required="" />
                 
              
                 <button id="registerButton" class="btn btn-lg btn-primary btn-block" type="submit">Zarejestruj</button>
