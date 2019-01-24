@@ -30,7 +30,10 @@ public class ClientSearchService {
 
 		public Collection<Client> searchClient(String text) {
 		       Criteria criteria = new Criteria();
-		       criteria.orOperator(Criteria.where("clientName").regex(text, "i"),Criteria.where("clientAddress").regex(text, "i"),Criteria.where("clientCode").regex(text, "i"));
+		       criteria.orOperator(Criteria.where("clientName").regex(text, "i"),Criteria.where("clientAddressStreet").regex(text, "i"),
+		    		   Criteria.where("clientAddressCity").regex(text, "i"),Criteria.where("clientAddressPostalCode").regex(text, "i"),
+		    		   Criteria.where("clientCode").regex(text, "i"),Criteria.where("contactPersonName").regex(text, "i"),
+		    		   Criteria.where("contactPersonNumber").regex(text, "i"),Criteria.where("contactPersonEmail").regex(text, "i"));
 		       Query query = new Query(criteria); 
 			        
 		return mongoTemplate.find(query,Client.class);
