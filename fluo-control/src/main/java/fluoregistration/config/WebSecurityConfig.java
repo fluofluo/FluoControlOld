@@ -60,7 +60,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	            
 	            
 	            
-	            .antMatchers("/dashboard/**").hasAuthority("ADMIN").anyRequest()	            
+	            .antMatchers("/hyperadmin_dashboard/**").hasAuthority("HYPERADMIN").anyRequest()
+	           
 	            .authenticated().and().csrf().disable().formLogin().successHandler(customizeAuthenticationSuccessHandler)
 	            .loginPage("/login").failureUrl("/login?error=true")
 	            .usernameParameter("email")
