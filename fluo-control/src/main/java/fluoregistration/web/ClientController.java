@@ -70,6 +70,12 @@ public class ClientController {
 	public String deleteClient(@PathVariable String clientId, @ModelAttribute("deleteClient") Client client) {
 		client.setId(clientId);
 		clientRepository.delete(client);
+		try {
+			Thread.sleep(1600);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "redirect:/clients";
 
 	}
