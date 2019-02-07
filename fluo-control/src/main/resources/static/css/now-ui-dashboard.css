@@ -1606,22 +1606,22 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
     .navbar a:not(.btn):not(.dropdown-item) {
       color: #FFFFFF; }
     .navbar a.dropdown-item {
-      color: #888; }
+      color: #FFFFFF; }
   .navbar.bg-white .input-group .form-control,
   .navbar.bg-white .input-group.no-border .form-control {
-    color: #888; }
+    color: #FFFFFF; }
     .navbar.bg-white .input-group .form-control::-moz-placeholder,
     .navbar.bg-white .input-group.no-border .form-control::-moz-placeholder {
-      color: #888; }
+      color: #FFFFFF; }
     .navbar.bg-white .input-group .form-control:-ms-input-placeholder,
     .navbar.bg-white .input-group.no-border .form-control:-ms-input-placeholder {
-      color: #888; }
+      color: #ffffff; }
     .navbar.bg-white .input-group .form-control::-webkit-input-placeholder,
     .navbar.bg-white .input-group.no-border .form-control::-webkit-input-placeholder {
-      color: #888; }
+      color: #FFFFFF; }
   .navbar.bg-white .input-group-prepend .input-group-text i,
   .navbar.bg-white .input-group-append .input-group-text i {
-    color: #888;
+    color: #FFFFFF;
     opacity: .5; }
   .navbar .form-group,
   .navbar .input-group {
@@ -1755,10 +1755,10 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
     box-shadow: none;
     color: #FFFFFF; }
   .navbar.bg-white:not(.navbar-transparent) a:not(.dropdown-item):not(.btn) {
-    color: #888; }
+    color: #ffffff; }
     .navbar.bg-white:not(.navbar-transparent) a:not(.dropdown-item):not(.btn).disabled {
       opacity: .5;
-      color: #888; }
+      color: #ffffff; }
   .navbar.bg-white:not(.navbar-transparent) .button-bar {
     background: #888; }
   .navbar.bg-white:not(.navbar-transparent) .nav-item.active .nav-link:not(.btn),
@@ -1766,12 +1766,12 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
   .navbar.bg-white:not(.navbar-transparent) .nav-item .nav-link:not(.btn):hover,
   .navbar.bg-white:not(.navbar-transparent) .nav-item .nav-link:not(.btn):active {
     background-color: rgba(222, 222, 222, 0.8);
-    color: #888; }
+    color: #ffffff; }
   .navbar.bg-white:not(.navbar-transparent) .logo-container {
-    border: 1px solid #888; }
+    border: 1px solid #ffffff; }
 
 .bg-default {
-  background-color: #888 !important; }
+  background-color: #ffffff !important; }
 
 .bg-primary {
   background: linear-gradient(to right, #88FF8C 0%, #00FEFF 90%);}
@@ -3398,9 +3398,9 @@ Created using IcoMoon - icomoon.io
     color: #FFFFFF; }
   .navbar.bg-white .dropdown-menu .dropdown-item:focus,
   .navbar.bg-white .dropdown-menu .dropdown-item:hover {
-    color: #888; }
+    color: #FFFFFF; }
   .navbar.bg-white:not(.navbar-transparent) .navbar-toggler-bar {
-    background-color: #888; }
+    background-color: #FFFFFF; }
   .wrapper {
     transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1); }
   .sidebar {

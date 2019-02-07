@@ -47,15 +47,12 @@ public class ClientController {
 	}
 
 
-
 	@RequestMapping(value = "/clients_show/{clientId}", method=RequestMethod.GET)
 	public String showClient(@PathVariable String clientId, Model model) {
 		Client client = clientSearchService.findClientById(clientId);
 		model.addAttribute("client", client);
 		return "clients_show";
 	}
-
-
 
 
 	@RequestMapping(value = "/clients_show/{clientId}", method=RequestMethod.POST)
@@ -70,12 +67,6 @@ public class ClientController {
 	public String deleteClient(@PathVariable String clientId, @ModelAttribute("deleteClient") Client client) {
 		client.setId(clientId);
 		clientRepository.delete(client);
-		try {
-			Thread.sleep(1600);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return "redirect:/clients";
 
 	}
