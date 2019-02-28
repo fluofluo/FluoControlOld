@@ -16,6 +16,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 
 
+
 @SpringBootApplication
 @ComponentScan("fluoregistration")
 @EnableMongoRepositories("fluoregistration")
@@ -25,7 +26,7 @@ public class FluoControlApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FluoControlApplication.class, args);
 	}
-	
+
 		
 	
 	@Bean
@@ -56,8 +57,7 @@ public class FluoControlApplication {
 	    };
 
 	}
-	
-	
+
 
 }
 

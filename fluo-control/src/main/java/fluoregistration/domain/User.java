@@ -20,11 +20,12 @@ public class User {
 	private String email;
 	
 	private String password;
-	private String firstname;
-	private String lastname;
+	private String firstName;
+	private String lastName;
 	private boolean enabled;
 	@DBRef
 	private Set<Role> roles;
+	private String clientCode;
 	
 	
 	public String getId() {
@@ -45,17 +46,17 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getFirstname() {
-		return firstname;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public String getLastname() {
-		return lastname;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	
 	public boolean isEnabled() {
@@ -70,5 +71,12 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+	public String getClientCode() {
+		return clientCode;
+	}
+	public void setClientCode(String clientCode) {
+		this.clientCode = clientCode;
+	}
+
 	
 }

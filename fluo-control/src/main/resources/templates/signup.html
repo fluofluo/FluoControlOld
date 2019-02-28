@@ -33,6 +33,7 @@
 		        //The passwords do not match.
 		        //Set the color to the bad color and
 		        //notify the user.
+		        //block registerButton
 		        document.getElementById("registerButton").disabled = true;
 		        inputConfirmPassword.style.backgroundColor = badColor;
 		        messagePassword.style.color = infoColor;
@@ -64,6 +65,7 @@
 		        //The passwords do not match.
 		        //Set the color to the bad color and
 		        //notify the user.
+		        //block registerButton
 		        document.getElementById("registerButton").disabled = true;
 		        inputConfirmEmail.style.backgroundColor = badColor;
 		        messageEmail.style.color = infoColor;
@@ -74,28 +76,14 @@
 		
   </script>
 
-
-
-
-
 </head>
 <body class="text-center">
 	<div layout:fragment="content">
 
-
-
-
-
 		<form class="form-signin" th:action="@{/signup}" th:object="${user}"
 			method="post">
 
-
-
 			<img class="p-3" th:src="@{/images/logoLogin.png}" alt="Super logo" />
-
-
-
-
 
 			<div th:each="e : ${#fields.detailedErrors()}">
 				<div class="alert alert-warning alert-dismissible fade show"
@@ -108,37 +96,43 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-
-
 			</div>
 
 
-			<label for="inputEmail" class="sr-only">E-mail</label> <input
-				type="email" name="email" id="inputEmail" class="form-control"
-				placeholder="e-mail" onkeyup="checkEmail(); return false;"
-				required="" /> <label for="inputConfirmEmail" class="sr-only">E-mail</label>
-			<input type="email" name="inputConfirmEmail" id="inputConfirmEmail"
-				class="form-control" onkeyup="checkEmail(); return false;"
-				placeholder="potwierdź e-mail" required="" /> <span
-				id="confirmEmailMessage" class="confirmEmailMessage"></span> <label
-				for="inputPassword" class="sr-only">Hasło</label> <input
-				type="password" name="password" id="inputPassword"
-				class="form-control" placeholder="hasło"
-				onkeyup="checkPass(); return false;" required="" /> <label
-				for="inputConfirmPassword" class="sr-only">Hasło</label> <input
-				type="password" name="inputConfirmPassword"
-				id="inputConfirmPassword" class="form-control"
-				placeholder="powtórz hasło" required=""
-				onkeyup="checkPass(); return false;" /> <span
-				id="confirmPasswordMessage" class="confirmPasswordMessage"></span> <label
-				for="inputFirstname" class="sr-only">Imię</label> <input type="text"
-				name="firstname" id="inputFirstname" class="form-control"
-				placeholder="imię" required="" /> <label for="inputLastname"
-				class="sr-only">Nazwisko</label> <input type="text" name="lastname"
-				id="inputLastname" class="form-control" placeholder="nazwisko"
-				required="" /> <label for="inputClientCode" class="sr-only">Kod
-				klienta</label> <input type="text" name="clientCode" id="inputClientCode"
-				class="form-control" placeholder="Kod klienta" required="" />
+				<label for="inputEmail" class="sr-only">E-mail</label> 
+					<input type="email" name="email" id="inputEmail" class="form-control" 
+					placeholder="e-mail" onkeyup="checkEmail(); return false;" required="" />
+					
+				<label for="inputConfirmEmail" class="sr-only">E-mail</label>
+					<input type="email" name="inputConfirmEmail" id="inputConfirmEmail"
+					class="form-control" onkeyup="checkEmail(); return false;"
+					placeholder="potwierdź e-mail" required="" /> 
+				
+				<span id="confirmEmailMessage" class="confirmEmailMessage"></span> 
+				
+				<label for="inputPassword" class="sr-only">Hasło</label> 
+					<input type="password" name="password" id="inputPassword"
+					class="form-control" placeholder="hasło"
+					onkeyup="checkPass(); return false;" required="" />
+					 
+				<label for="inputConfirmPassword" class="sr-only">Hasło</label> 
+					<input type="password" name="inputConfirmPassword"id="inputConfirmPassword" 
+					class="form-control" placeholder="powtórz hasło" required=""
+					onkeyup="checkPass(); return false;" /> 
+					
+				<span id="confirmPasswordMessage" class="confirmPasswordMessage"></span>
+				 
+				<label for="inputFirstName" class="sr-only">Imię</label>
+					<input type="text" name="firstName" id="inputFirstName" class="form-control"
+					placeholder="imię" required="" /> 
+					
+				<label for="inputLastname" class="sr-only">Nazwisko</label> 
+					<input type="text" name="lastName" id="inputLastName" class="form-control" placeholder="nazwisko"
+					required="" /> 
+					
+				<label for="inputClientCode" class="sr-only">Kod klienta</label> 
+					<input type="text" name="clientCode" id="inputClientCode"
+					class="form-control" placeholder="Kod klienta" required="" />
 
 
 			<button id="registerButton" class="btn btn-lg btn-primary btn-block"
@@ -149,14 +143,6 @@
 
 
 	</div>
-
-
-
-
-
-
-
-
 
 </body>
 </html>

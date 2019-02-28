@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{hyperadmin_dashboard_template}" lang="en">
+
+<head>
+
+<title>Device edit</title>
+
+
+
+</head>
+
+<body>
+	<div class="wrapper" layout:fragment="content">
+
+		<div class="main-panel">
+
+
+			<div class="content">
+
+				<div class="wrapper">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header">
+								<h2>Edit Device</h2>
+							</div>
+
+							<div class="card-body">
+								<form method="POST"
+									th:action="@{/devices_show/__${device.id}__}"
+									th:modelAttribute="editDevice">
+
+
+
+
+									<div class="row">
+										<label class="col-sm-1 col-form-label" id="deviceName">Device name</label>
+										<div class="col-sm-4">
+											<div class="form-group">
+												<input class="form-control" th:value="${device.deviceName}"
+													type="text" name="deviceName" id="deviceName"
+													aria-invalid="false">
+											</div>
+										</div>
+									</div>
+
+
+										<label class="col-sm-1 col-form-label"
+											id="deviceType">Type</label>
+										<div class="col-sm-2">
+											<div class="form-group">
+												<input class="form-control"
+													th:value="${device.deviceType}" type="text"
+													name="deviceType" id="deviceType"
+													aria-invalid="false" placeholder="Type">
+											</div>
+										</div>
+
+
+										<div class="col-sm-2">
+											<div class="form-group">
+												<input class="form-control"
+													th:value="${device.deviceMacAddress}" type="text"
+													name="deviceMacAddress" id="deviceMacAddress"
+													aria-invalid="false" placeholder="MAC">
+											</div>
+										</div>
+
+
+									<button class="btn btn-primary btn-simple" type="submit">Edit device</button>
+								</form>
+							</div>
+						</div>
+						<br />
+
+
+					</div>
+				</div>
+			</div>
+
+
+			<footer class="footer">
+				<div class="container">
+					<div>
+						<ul>
+							<li><a href="https://www.google.com"> FLUO </a></li>
+							<li><a href="https://www.google.com"> About Us </a></li>
+							<li><a href="https://www.google.com"> Blog </a></li>
+							<li>
+								<div class="copyright" id="copyright">&copy;</div>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+			</footer>
+		</div>
+	</div>
+
+
+</body>
+
+</html>

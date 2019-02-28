@@ -1,10 +1,13 @@
 package fluoregistration.config;
 
 import org.springframework.context.annotation.Bean;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
 
 @Configuration
 public class PageConfig implements WebMvcConfigurer{
@@ -15,6 +18,10 @@ public class PageConfig implements WebMvcConfigurer{
 	    BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 	    return bCryptPasswordEncoder;
 	}
+	
+	
+	
+	
 	
 	//Override method to register the controllers and the views
 	@Override
@@ -31,6 +38,7 @@ public class PageConfig implements WebMvcConfigurer{
 	    registry.addViewController("/loggedout").setViewName("loggedout");
 	    
 	    registry.addViewController("/clients").setViewName("clients");
+	    registry.addViewController("/addClient").setViewName("addClient");
 	    registry.addViewController("/clients_show").setViewName("clients_show");
 	    registry.addViewController("/edit_client").setViewName("edit_client");
 	}

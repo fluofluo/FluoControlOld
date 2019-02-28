@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{hyperadmin_dashboard_template}" lang="en">
+
+
+
+
+<head>
+
+<title>Devices</title>
+
+</head>
+
+<body>
+	<div class="wrapper" layout:fragment="content">
+
+
+
+
+		<!--  <div class="panel-header panel-header-sm"></div> -->
+
+		<div class="content">
+
+			<div class="wrapper">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<h2>Add Device</h2>
+						</div>
+
+						<div class="card-body">
+							<form action="/addDevice" method="POST"
+								th:modelAttribute="addDevice">
+								<div class="row">
+									<label class="col-sm-1 col-form-label" id="deviceName">Device
+										name</label>
+									<div class="col-sm-4">
+										<div class="form-group">
+											<input class="form-control" type="text" name="deviceName"
+												id="deviceName" aria-invalid="false">
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+
+									<label class="col-sm-1 col-form-label" id="deviceType">Type</label>
+									<div class="col-sm-2">
+										<div class="form-group">
+											<input class="form-control" type="text" name="deviceType"
+												id="deviceType" aria-invalid="false" placeholder="Type">
+										</div>
+									</div>
+
+
+									<div class="col-sm-2">
+										<div class="form-group">
+											<input class="form-control" type="text"
+												name="deviceMacAddress" id="deviceMacAddress"
+												aria-invalid="false" placeholder="MAC">
+										</div>
+									</div>
+								</div>
+
+									<button class="btn btn-primary btn-simple" type="submit">Add</button>
+							</form>
+						</div>
+					</div>
+					<br />
+
+					<div class="card">
+						<div class="card-header">
+							<h2>Search for device</h2>
+						</div>
+
+						<div class="card-body">
+							<form id="searchDeviceInput" action="/searchDevice" method="POST">
+								<div class="row">
+									<div class="col-sm-3">
+										<div class="form-group">
+											<input class="form-control" type="text" name="searchDevice"
+												th:value="${searchDevice}" style="margin-top: 10px;" />
+										</div>
+									</div>
+									<div class="col-sm-1">
+										<button id="searchDeviceButton"
+											class="btn btn-primary btn-simple" type="submit"
+											value="Search">Search</button>
+									</div>
+								</div>
+							</form>
+
+
+
+							<br />
+						</div>
+
+						<div class="card-body">
+							<div class="col-md-auto">
+								<div class="table-responsive">
+									<table class="table">
+										<thead class="text">
+											<tr>
+												<th>Name</th>
+												<th>Type</th>
+												<th>MAC</th>
+												<th>Edit</th>
+												<th>Remove</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="device : ${deviceList}">
+												<td><strong th:text="${device.deviceName}"></strong></td>
+												<td th:text="${device.deviceType}"></td>
+												<td th:text="${device.deviceMacAddress}"></td>
+												
+												<td><a class="btn btn-info"
+													th:modelAttribute="showDevice"
+													th:href="@{/devices_show/__${device.id}__}"> <i
+														class="now-ui-icons ui-2_settings-90"></i></a></td>
+												<td><a id="deviceDeleteConfirmButton"
+													class="btn btn-danger-deleteDevice"
+													onclick="deviceDeleteConfirmAlert();"
+													th:value="@{/delete_device/__${device.id}__}"> <i
+														class="now-ui-icons ui-1_simple-remove"></i></a></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<footer class="footer">
+			<div class="container">
+				<div>
+					<ul>
+						<li><a href="https://www.google.com"> FLUO </a></li>
+						<li><a href="https://www.google.com"> About Us </a></li>
+						<li><a href="https://www.google.com"> Blog </a></li>
+						<li>
+							<div class="copyright" id="copyright">&copy;</div>
+						</li>
+					</ul>
+
+
+					<script src="/js/sweetalert2.all.min.js"></script>
+
+					<script>
+							const buttons = document.querySelectorAll('.btn-danger-deleteDevice')
+							
+							for(button of buttons){
+							  var value = button.getAttribute('value')
+							  button.addEventListener('click', () => {
+							    deviceDeleteConfirmAlert(value);
+							    document.getElementById('deviceDeleteConfirmButton').getAttribute('value');
+							  })
+							  
+							}
+							
+							function deviceDeleteConfirmAlert () {
+															
+							const swalWithBootstrapButtons = Swal.mixin({
+								confirmButtonClass: 'btn btn-success',
+								cancelButtonClass: 'btn btn-danger',
+								buttonsStyling: false,
+								})
+														
+														
+								swalWithBootstrapButtons.fire({
+									title: 'Are you sure?',
+									text: "You won't be able to revert this!",
+									type: 'warning',
+									showCancelButton: true,							  
+									confirmButtonText: 'Yes, delete it!',
+									cancelButtonText: 'No, cancel!',
+									reverseButtons: true
+								}).then((result) => {
+									if (result.value) {
+										swalWithBootstrapButtons.fire({
+										    type: 'success',
+										    title: 'Device deleted',
+										    showConfirmButton: false,
+										    timer: 1500										    
+										    });
+										setTimeout(function() {
+											window.location.replace(value);
+											}, 1700);
+									}else if (								    
+										result.dismiss === Swal.DismissReason.cancel
+										) {
+										swalWithBootstrapButtons.fire({
+										    type: 'info',
+										    title: 'Device is safe',
+										    showConfirmButton: false,
+										    timer: 1500
+										    }
+									)
+									}
+								})
+								}
+							</script>
+
+				</div>
+
+			</div>
+		</footer>
+	</div>
+
+
+
+
+
+
+</body>
+
+</html>
+
+

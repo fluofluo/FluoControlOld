@@ -704,6 +704,48 @@ Copyright (c) 2015 Daniel Eden
       color: #ff5555;
       text-decoration: none;
       box-shadow: none; }
+      
+.btn-danger-deleteDevice {
+  background-color: #FF3636;
+  color: #FFFFFF; }
+  .btn-danger:hover, .btn-danger:focus, .btn-danger:not(:disabled):not(.disabled):active, .btn-danger:not(:disabled):not(.disabled).active, .btn-danger:not(:disabled):not(.disabled):active:focus, .btn-danger:not(:disabled):not(.disabled).active:focus, .btn-danger:active:hover, .btn-danger.active:hover,
+  .show > .btn-danger.dropdown-toggle,
+  .show > .btn-danger.dropdown-toggle:focus,
+  .show > .btn-danger.dropdown-toggle:hover {
+    background-color: #ff5555;
+    color: #FFFFFF;
+    box-shadow: none;
+    border-color: #ff5555; }
+  .btn-danger:not([data-action]):hover {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17); }
+  .btn-danger.disabled, .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled.focus, .btn-danger.disabled:active, .btn-danger.disabled.active, .btn-danger:disabled, .btn-danger:disabled:hover, .btn-danger:disabled:focus, .btn-danger:disabled.focus, .btn-danger:disabled:active, .btn-danger:disabled.active, .btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled].focus, .btn-danger[disabled]:active, .btn-danger[disabled].active,
+  fieldset[disabled] .btn-danger,
+  fieldset[disabled] .btn-danger:hover,
+  fieldset[disabled] .btn-danger:focus,
+  fieldset[disabled] .btn-danger.focus,
+  fieldset[disabled] .btn-danger:active,
+  fieldset[disabled] .btn-danger.active {
+    background-color: #FF3636;
+    border-color: #FF3636; }
+  .btn-danger.btn-simple {
+    color: #FF3636;
+    border-color: #FF3636; }
+    .btn-danger.btn-simple:hover, .btn-danger.btn-simple:focus, .btn-danger.btn-simple:not(:disabled):not(.disabled):active, .btn-danger.btn-simple:not(:disabled):not(.disabled).active, .btn-danger.btn-simple:not(:disabled):not(.disabled):active:focus, .btn-danger.btn-simple:not(:disabled):not(.disabled).active:focus, .btn-danger.btn-simple:active:hover, .btn-danger.btn-simple.active:hover,
+    .show > .btn-danger.btn-simple.dropdown-toggle,
+    .show > .btn-danger.btn-simple.dropdown-toggle:focus,
+    .show > .btn-danger.btn-simple.dropdown-toggle:hover {
+      background-color: transparent;
+      color: #ff5555;
+      border-color: #ff5555;
+      box-shadow: none; }
+  .btn-danger.btn-link {
+    color: #FF3636; }
+    .btn-danger.btn-link:hover, .btn-danger.btn-link:focus, .btn-danger.btn-link:active {
+      background-color: transparent;
+      color: #ff5555;
+      text-decoration: none;
+      box-shadow: none; }     
+ 
 
 .btn-neutral {
   background-color: #FFFFFF;

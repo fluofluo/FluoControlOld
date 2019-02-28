@@ -1,6 +1,6 @@
 package fluoregistration.web;
 
-import javax.validation.Valid; 
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -91,7 +91,7 @@ public class LoginController {
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    User user = userService.findUserByEmail(auth.getName());
 	    modelAndView.addObject("currentUser", user);
-	    modelAndView.addObject("fullName", "Hiperadministrator " + user.getFirstname() + " " + user.getLastname() );
+	    modelAndView.addObject("fullName", "Hiperadministrator " + user.getFirstName() + " " + user.getLastName() );
 	    modelAndView.addObject("hyperadminMessage", "Content Available Only for Users with hyperadmindmin Role");
 	    modelAndView.setViewName("hyperadmin_dashboard");
 	    return modelAndView;
@@ -104,7 +104,7 @@ public class LoginController {
 		    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		    User user = userService.findUserByEmail(auth.getName());
 		    modelAndView.addObject("currentUser", user);
-		    modelAndView.addObject("fullName", "Administrator " + user.getFirstname() + " " + user.getLastname() );
+		    modelAndView.addObject("fullName", "Administrator " + user.getFirstName() + " " + user.getLastName() );
 		    modelAndView.addObject("adminMessage", "Content Available Only for Users with admin Role");
 		    modelAndView.setViewName("admin_dashboard");
 		    return modelAndView;
@@ -117,7 +117,7 @@ public class LoginController {
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    User user = userService.findUserByEmail(auth.getName());
 	    modelAndView.addObject("currentUser", user);
-	    modelAndView.addObject("fullName", "Użytkownik " + user.getFirstname() + " " + user.getLastname() );
+	    modelAndView.addObject("fullName", "Użytkownik " + user.getFirstName() + " " + user.getLastName() );
 	    modelAndView.addObject("userMessage", "Content Available Only for Users with User Role");
 	    modelAndView.setViewName("user_dashboard");
 	    return modelAndView;
