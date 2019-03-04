@@ -35,23 +35,23 @@ public class ClientController {
 
 	@Autowired
 	ClientSearchService clientSearchService;
-	
+
 	@Autowired
 	private CustomUserDetailsService userService;
-	
-	
-	
+
+
+
 
 	@RequestMapping(value = "/clients", method=RequestMethod.GET)
 	public ModelAndView clients(Model model) {
 		ModelAndView modelAndView = new ModelAndView();
-	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    User user = userService.findUserByEmail(auth.getName());
-	    modelAndView.addObject("currentUser", user);
-	    modelAndView.addObject("fullName", "Hiperadministrator " + user.getFirstName() + " " + user.getLastName() );
-	    modelAndView.setViewName("clients");
-		model.addAttribute("clientList", clientRepository.findAll());
-		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		modelAndView.addObject("currentUser", user);
+		modelAndView.addObject("fullName", "Hiperadministrator " + user.getFirstName() + " " + user.getLastName() );
+		modelAndView.setViewName("clients");
+				model.addAttribute("clientList", clientRepository.findAll());
+
 		return modelAndView;
 	}
 
@@ -61,13 +61,13 @@ public class ClientController {
 		if (bindingResult.hasErrors()) {
 			return "redirect:clients";
 		}else {
-		
-		clientRepository.save(client);
-		return "redirect:clients";
+
+			clientRepository.save(client);
+			return "redirect:clients";
 		}
 	}
-	
-	
+
+
 
 
 	@RequestMapping(value = "/searchClient")
@@ -101,25 +101,25 @@ public class ClientController {
 		return "redirect:/clients";
 
 	}
-	
+
 	@RequestMapping(value = "/sound")
-		public static synchronized void playSound(final String url) {
-			  new Thread(new Runnable() {
-			  // The wrapper thread is unnecessary, unless it blocks on the
-			  // Clip finishing; see comments.
-			    public void run() {
-			      try {
-			        Clip clip = AudioSystem.getClip();
-			        AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-			          Clip.class.getResourceAsStream("/static/sounds/alert2.wav"));
-			        clip.open(inputStream);
-			        clip.start(); 
-			      } catch (Exception e) {
-			        System.err.println(e.getMessage());
-			      }
-			    }
-			  }).start();
+	public static synchronized void playSound(final String url) {
+		new Thread(new Runnable() {
+			// The wrapper thread is unnecessary, unless it blocks on the
+			// Clip finishing; see comments.
+			public void run() {
+				try {
+					Clip clip = AudioSystem.getClip();
+					AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+							Clip.class.getResourceAsStream("/static/sounds/alert2.wav"));
+					clip.open(inputStream);
+					clip.start(); 
+				} catch (Exception e) {
+					System.err.println(e.getMessage());
+				}
 			}
+		}).start();
+	}
 
 
 }

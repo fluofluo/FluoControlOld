@@ -3,15 +3,16 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <head>
-        <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Default2</title>
+        <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Default</title>
         <meta name="description" content=""/>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <link href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
-        <link href="../static/css/defaultTemplateStyle.css" th:href="@{/css/defaultTemplateStyle.css}" rel="stylesheet"/>
+        <link th:href="@{/static/css/bootstrap.css}" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/static/css/defaultTemplateStyle.css}" rel="stylesheet" type="text/css"/>
         
         <!--Pace loading bar -->
-        	<script src="/js/pace.js"></script>
-			<link href="../static/css/pace-theme-minimal.css" th:href="@{/css/pace-theme-minimal.css}"rel="stylesheet"/>
+        	<script src="/static/js/pace.js"></script>
+			<link th:href="@{/static/css/pace-theme-minimal.css}" rel="stylesheet" type="text/css"/>
 				
     </head>
     <body>
