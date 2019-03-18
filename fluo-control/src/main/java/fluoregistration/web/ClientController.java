@@ -50,7 +50,7 @@ public class ClientController {
 		modelAndView.addObject("currentUser", user);
 		modelAndView.addObject("fullName", "Hiperadministrator " + user.getFirstName() + " " + user.getLastName() );
 		modelAndView.setViewName("clients");
-				model.addAttribute("clientList", clientRepository.findAll());
+		model.addAttribute("clientList", clientRepository.findAll());
 
 		return modelAndView;
 	}
@@ -67,9 +67,7 @@ public class ClientController {
 		}
 	}
 
-
-
-
+	
 	@RequestMapping(value = "/searchClient")
 	public String searchClient(Model model, @RequestParam String searchClient) {
 		model.addAttribute("clientList", clientSearchService.searchClient(searchClient));
@@ -77,7 +75,7 @@ public class ClientController {
 		return "clients";
 	}
 
-
+	
 	@RequestMapping(value = "/clients_show/{clientId}", method=RequestMethod.GET)
 	public String showClient(@PathVariable String clientId, Model model) {
 		Client client = clientSearchService.findClientById(clientId);
@@ -85,7 +83,7 @@ public class ClientController {
 		return "clients_show";
 	}
 
-
+	//EDIT
 	@RequestMapping(value = "/clients_show/{clientId}", method=RequestMethod.POST)
 	public String editClient(@PathVariable String clientId, @ModelAttribute("editClient") Client client) {
 		client.setId(clientId);

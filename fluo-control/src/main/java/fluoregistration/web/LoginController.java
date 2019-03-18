@@ -56,8 +56,6 @@ public class LoginController {
 	public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult, @ModelAttribute("client") Client client) {
 		ModelAndView modelAndView = new ModelAndView();
 
-
-
 		Client clientCodeExists = clientCodeService.findClientByClientCode(client.getClientCode());
 
 		User userExists = userService.findUserByEmail(user.getEmail());

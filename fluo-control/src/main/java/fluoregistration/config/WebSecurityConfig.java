@@ -69,7 +69,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/sounds/**").permitAll()
 
 		
-		.antMatchers("/hyperadmin_dashboard/**").hasAuthority("HYPERADMIN").anyRequest()
+		.antMatchers("/hyperadmin_dashboard/*").hasAuthority("HYPERADMIN").anyRequest()
 		
 
 		.authenticated().and().csrf().disable().formLogin().successHandler(customizeAuthenticationSuccessHandler)

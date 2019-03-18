@@ -47,6 +47,12 @@ public class CustomUserDetailsService implements UserDetailsService {
 	    userRepository.save(user);
 	}
 	
+	//method for update existing user
+	public void updateUser(User user) {
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		userRepository.save(user);
+	}
+	
 	//method for handling the login mechanism that checks or compares username with the user from MongoDB collection
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {

@@ -83,7 +83,7 @@
 		<form class="form-signin" th:action="@{/signup}" th:object="${user}"
 			method="post">
 
-			<img class="p-3" th:src="@{/images/logoLogin.png}" alt="Super logo" />
+			<img class="p-3" src="static/images/logoLogin.png" alt="Super logo" />
 
 			<div th:each="e : ${#fields.detailedErrors()}">
 				<div class="alert alert-warning alert-dismissible fade show"
